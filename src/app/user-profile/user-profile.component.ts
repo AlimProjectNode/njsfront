@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(
+    public http: HttpClient
+  ){}
   ngOnInit() {
+    this.getProductos2();
   }
+  getProductos(): Observable<any>{
+    return this.http.get('https://jsonplaceholder.typicode.com/posts');
+  }
+  getProductos2(){
+    this.getProductos().subscribe(
+      result => {
 
+        if(result.code != 200){
+          console.log(result);
+        }else{
+
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
 }

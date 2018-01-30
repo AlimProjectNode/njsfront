@@ -18,6 +18,8 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,8 +38,9 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
     FormsModule,
     HttpModule,
     ComponentsModule,
-RouterModule,
-    AppRoutingModule
+    RouterModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
